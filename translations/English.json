@@ -1,0 +1,12 @@
+{
+  "errors": {
+    "unknownError": "An unknown error occurred.",
+    "functionBodyInvalid": "The provided data does not conform to this function's schema.",
+    "functionNotFound": "The request function does not exist.",
+
+    "autoIdNotUnique": "Rare error: auto-generated ID is in use. Please try again.",
+    "autoUsernameNotUnique": "Rare error: auto-generated username is in use. Please try again.",
+    
+    "emailNotUnique": "This email is already in use."
+  }
+}

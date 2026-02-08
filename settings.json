@@ -1,0 +1,29 @@
+{
+  "debug": true,
+  "database": "data/my-app-name.db",
+
+  "setupFiles": [
+    "createUsersTable.sql",
+    "createSessionsTable.sql"
+  ],
+  "startupCommands": [
+    "init",
+    "start"
+  ],
+  "plugins": [
+
+  ],
+
+  "ipAddressTable": "ip_data",
+  "ipAddressPk": "ip_address",
+  "sessionTable": "sessions",
+  "sessionPk": "id",
+  "globalTable": "configs",
+
+  "inlineTemplates": true,
+
+  "config": {
+    "passwordSaltRounds": 12,
+    "minimumAge": 13
+  }
+}
