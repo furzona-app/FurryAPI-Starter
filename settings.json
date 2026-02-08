@@ -16,8 +16,6 @@
 
   "ipAddressTable": "ip_data",
   "ipAddressPk": "ip_address",
-  "sessionTable": "sessions",
-  "sessionPk": "id",
   "globalTable": "configs",
 
   "inlineTemplates": true,
