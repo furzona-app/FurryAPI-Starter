@@ -1,19 +1,23 @@
-module.exports = {
-  names: ["User"],
-  sqlFields: {
-    NO_DESCRIPTION: ["id", "username", "created_at"],
-    PUBLIC: ["id", "username", "description", "created_at"],
-    PRIVATE: ["id", "username", "description", "created_at"],
-    ALL: ["*"],
-  },
+const path = require("path");
+const { Template } = require(path.resolve(path.dirname(require.main.filename), "classes"));
 
-  async runTemplate(obj, {}) {
+class User extends Template {
+  #obj;
+
+  constructor(obj) {
+    super();
+    this.#obj = obj;
+  }
+
+  toNetworkObject(context) {
     return {
-      id: obj.id,
-      displayName: obj.username, // TODO
-      username: obj.username,
-      description: obj.description,
-      createdAt: obj.created_at
+      id: this.#obj.id,
+      displayName: this.#obj.username,
+      username: this.#obj.username,
+      description: this.#obj.description,
+      createdAt: this.#obj.created_at
     };
   }
-};
+}
+
+module.exports = User;

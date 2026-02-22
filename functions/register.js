@@ -18,7 +18,7 @@ module.exports = {
     }
   },
 
-  async runFunction(name, body, { config, db, randomString, newSession, User }) {
+  async runFunction(name, body, { config, db, randomString, newSession }) {
     // hash the user's password
     const hashedPassword = await new Promise((resolve, reject) => {
       bcrypt.hash(body.password, config.passwordSaltRounds, (err, hash) => {
@@ -34,7 +34,7 @@ module.exports = {
 
     // create the user
     const user = db.get(`
-      INSERT INTO users (id, username, email, password) VALUES ($->new_id(), ?, ?, ?) RETURNING ${User.PRIVATE$.with("id")}
+      INSERT INTO users (id, username, email, password) VALUES ($->new_id(), ?, ?, ?) RETURNING *
     `, randomString(16), body.email, hashedPassword);
 
     return newSession(user.id);
